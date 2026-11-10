@@ -1,0 +1,64 @@
+name: view
+description: ratatui による画面・キー操作・エディタの起動と復帰（Claude と協働する部分）
+title: "[view] "
+labels: ["view"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        view は Claude と協働で書きます。Claude が書いたコードの commit には `Co-Authored-By` を付けます。
+        view からファイルを直接操作せず、必ず `Store` trait を通します。
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 目的
+      description: 利用者として何ができるようになるか
+    validations:
+      required: true
+  - type: textarea
+    id: screen
+    attributes:
+      label: 画面・操作
+      description: レイアウトのラフ（テキストで可）と、使うキー
+      placeholder: |
+        ┌ カレンダー ┐┌ プレビュー ┐
+        │            ││            │
+        └────────────┘└────────────┘
+        - `h` / `l`: 前日 / 翌日
+      render: text
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 完了条件
+      description: 実際に操作して確かめられる文で書きます
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: store
+    attributes:
+      label: Store に必要なメソッド
+      description: この画面が `Store` trait に求めるもの。足りなければ backend の Issue を別に立てます
+      placeholder: "- <例：指定した日に作られたメモの一覧>"
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: 対象外
+      description: 今回やらないこと
+  - type: textarea
+    id: refs
+    attributes:
+      label: 参考資料
+      description: ratatui 公式サイト、Rust book など
+      value: |
+        - ratatui:
+  - type: textarea
+    id: deps
+    attributes:
+      label: 依存
+      placeholder: "- #<番号>"
+  - type: textarea
+    id: notes
+    attributes:
+      label: メモ

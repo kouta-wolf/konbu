@@ -1,0 +1,2 @@
+# テンプレートを使わない空の Issue を作れないようにする（書き方をそろえるため）
+blank_issues_enabled: false

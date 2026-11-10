@@ -1,0 +1,40 @@
+name: chore
+description: 開発環境・CI・依存関係・リファクタなど、機能追加でも不具合でもない作業
+title: "[chore] "
+labels: ["chore"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 種類
+      options:
+        - 開発環境・設定
+        - CI
+        - 依存関係の更新
+        - リファクタ
+        - テスト
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 目的
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 完了条件
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: 参考資料
+  - type: textarea
+    id: notes
+    attributes:
+      label: メモ

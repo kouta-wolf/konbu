@@ -1,0 +1,55 @@
+name: 不具合
+description: 期待どおりに動かないもの
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        公開リポジトリです。日記・メモの実際の内容は貼らず、`sandbox/` のダミーデータで再現してください。
+  - type: textarea
+    id: what
+    attributes:
+      label: 起きていること
+      description: エラーメッセージは画像ではなく、文字をコピーして貼ってください
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      value: |
+        1. `KONBU_DIR=./sandbox cargo run`
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待する動き
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: 環境
+      value: |
+        - commit:
+        - ターミナル:
+        - $EDITOR:
+  - type: textarea
+    id: logs
+    attributes:
+      label: ログ
+      description: "`RUST_BACKTRACE=1` を付けて実行したときの出力など"
+      render: text
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 完了条件
+      value: |
+        - [ ] 上の再現手順で期待どおりに動く
+        - [ ] 再発を防ぐテストがある
+    validations:
+      required: true
