@@ -1,0 +1,36 @@
+name: documentation
+description: README・CLAUDE.md・テンプレートなどの文書
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: dropdown
+    id: target
+    attributes:
+      label: 対象
+      multiple: true
+      options:
+        - README
+        - CLAUDE.md
+        - Issue / PR テンプレート
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 目的
+      description: 誰に何を伝えるための変更か
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 完了条件
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: メモ

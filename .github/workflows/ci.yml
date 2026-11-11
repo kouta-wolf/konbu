@@ -1,0 +1,29 @@
+name: CI
+
+# いつ実行
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # リポジトリのコードを取得
+      - uses: actions/checkout@v7
+
+      # Rustを入れる
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      # ビルド結果をキャッシュして、2回目以降を高速化
+      - uses: Swatinem/rust-cache@v2
+
+      - name: fmt
+        run: cargo fmt --all --check
+      - name: clippy
+        run: cargo clippy --all-targets -- -D warnings
+      - name: test
+        run: cargo test

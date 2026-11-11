@@ -1,0 +1,64 @@
+name: backend
+description: データ構造・保存・読み込み・日付・CLI など（オーナーが手書きする部分）
+title: "[backend] "
+labels: ["backend"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        backend はオーナーが自分で書きます。Claude は実装コードを書かず、ヒント・設計相談・参考資料・エラーの読み方の説明にとどめます。
+        1 Issue = 1 ブランチ = 1 PR。PR が大きくなりそうなら Issue を分けてください。
+  - type: textarea
+    id: purpose
+    attributes:
+      label: 目的
+      description: なぜ必要か。どの機能（view や CLI）がこれを使うか
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 完了条件
+      description: テストや実行結果で確かめられる文で書きます
+      value: |
+        - [ ]
+        - [ ] テストを書き、`cargo test` が通る
+    validations:
+      required: true
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: 対象外
+      description: 今回やらないこと（別の Issue や Backlog に回すもの）
+      placeholder: "- <例：同名ファイルがあるときの連番付与（Backlog）>"
+  - type: textarea
+    id: learning
+    attributes:
+      label: 学習ポイント
+      description: この Issue で身につけたい Rust の文法・考え方。実装方法そのものは書きません
+      placeholder: |
+        - <例：`Result` と `?` 演算子>
+        - <例：`PathBuf` と `&Path` の違い>
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: 参考資料
+      description: Rust book 日本語版を主に、足りない部分は std / docs.rs で補います
+      value: |
+        - Rust book:
+        - std / docs.rs:
+    validations:
+      required: true
+  - type: textarea
+    id: deps
+    attributes:
+      label: 依存
+      description: 先に終わっている必要がある Issue
+      placeholder: "- #<番号>"
+  - type: textarea
+    id: notes
+    attributes:
+      label: メモ
+      description: 設計の判断、迷った点、比較した結果など。作業中に Issue コメントへ追記してもかまいません
